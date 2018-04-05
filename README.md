@@ -12,30 +12,12 @@ Terminal look a like Login
 
 columns Reordering
 
-
-----------
-
-
-----------
-
-
-----------
-
-
-----------
-
-
-**
-
 ![enter image description here](https://media.giphy.com/media/2yqyOgJzfsurm3PWhy/giphy.gif)
 
-**
-**
 Deletion
 ![enter image description here](https://media.giphy.com/media/ZcbluoFVQq7AgCBywV/giphy.gif)
 
 Inline Edit
-
 ![enter image description here](https://media.giphy.com/media/9D558wxlT3arSDCwMa/giphy.gif)
 
 Remove file from directory

@@ -1,0 +1,33 @@
+{
+    "data":
+    [
+        {
+            "label": "Documents",
+            "data": "Documents Folder",
+            "expandedIcon": "fa-folder-open",
+            "collapsedIcon": "fa-folder",
+            "children": [
+                {
+                    "label": "Set 1",
+                    "data": "Set 1 Folder",
+                    "expandedIcon": "fa-folder-open",
+                    "collapsedIcon": "fa-folder",
+                    "children": [
+                        {"label": "Set1 - file1.csv", "icon": "fa-file-word-o", "data": "Set1 - file1", "url": "../assets/set1/Set1 - file1.csv"},
+                        {"label": "Set1 - file2.csv", "icon": "fa-file-word-o", "data": "Set1 - file2", "url": "../assets/set1/Set1 - file2.csv"},
+                        {"label": "Set1 - file3.csv", "icon": "fa-file-word-o", "data": "Set1 - file3", "url": "../assets/set1/Set1 - file3.csv"}]
+                },
+                {
+                    "label": "Set 2",
+                    "data": "Set 2 Folder",
+                    "expandedIcon": "fa-folder-open",
+                    "collapsedIcon": "fa-folder",
+                    "children": [
+                        {"label": "Set2 - file1.csv", "icon": "fa-file-word-o", "data": "Set2 - file1", "url": "../assets/set2/file1.csv"},
+                        {"label": "Set2 - file2.csv", "icon": "fa-file-word-o", "data": "Set2 - file2", "url": "../assets/set2/file1.csv"},
+                        {"label": "Set2 - file3.csv", "icon": "fa-file-word-o", "data": "Set2 - file3", "url": "../assets/set2/file1.csv"},
+                        {"label": "Set2 - file4.csv", "icon": "fa-file-word-o", "data": "Set2 - file4", "url": "../assets/set2/file1.csv"}]
+                }]
+        }
+    ]
+}

@@ -1,20 +1,33 @@
-<!--The content below is only a placeholder and can be replaced.-->
-<div style="text-align:center">
-  <h1>
-    Welcome to {{ title }}!
-  </h1>
-  <img width="300" alt="Angular Logo" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj4KICAgIDxwYXRoIGZpbGw9IiNERDAwMzEiIGQ9Ik0xMjUgMzBMMzEuOSA2My4ybDE0LjIgMTIzLjFMMTI1IDIzMGw3OC45LTQzLjcgMTQuMi0xMjMuMXoiIC8+CiAgICA8cGF0aCBmaWxsPSIjQzMwMDJGIiBkPSJNMTI1IDMwdjIyLjItLjFWMjMwbDc4LjktNDMuNyAxNC4yLTEyMy4xTDEyNSAzMHoiIC8+CiAgICA8cGF0aCAgZmlsbD0iI0ZGRkZGRiIgZD0iTTEyNSA1Mi4xTDY2LjggMTgyLjZoMjEuN2wxMS43LTI5LjJoNDkuNGwxMS43IDI5LjJIMTgzTDEyNSA1Mi4xem0xNyA4My4zaC0zNGwxNy00MC45IDE3IDQwLjl6IiAvPgogIDwvc3ZnPg==">
+<p-terminal *ngIf="!user_ascess" id="login" welcomeMessage="Enter the Passphrase to continue" prompt="Csv-Viewer $"></p-terminal>
+
+<div *ngIf="user_ascess" class="ui-g">
+  <div class="ui-g-2 sidenav">
+    <p class="heading">Directory</p>
+    <p-tree  selectionMode="single" [(selection)]="selectedFile2" [contextMenu]="cm" id="directory" [value]="files"></p-tree>
+  </div>
+  <div class="ui-g-9">
+    <div class="ui-g-12">
+        <div class="ui-g-6" *ngFor="let item of tables; let i=index; ">
+            <p-dataTable  #dt exportFilename="{{item.id}}" reorderableColumns="true" pDroppable="eventos" (onDrop)="drop($event, i)" [editable]="true" [value]="item.data" [(selection)]="selectedValues[item.id]"  [contextMenu]="td">
+                <p-header>{{item.id}}
+                    <button type="button" pButton icon="fa-file-o" iconPos="left"  label="Download" (click)="dt.exportCSV()" style="float:left;margin-top: -1%"></button>
+                    <button type="button" pButton icon="fa-trash" iconPos="left"   label="Remove" (click)="deletetable(i)" style="float:right;margin-top: -1%"></button>
+                </p-header>
+                <p-column [style]="{'width':'38px'}" selectionMode="multiple"></p-column>
+                <p-column *ngFor="let key of item.keys; let first=first; let index = index" [editable]="true" field="{{key}}" header="{{key}}">
+                    <ng-template let-itm="rowData" pTemplate="body">
+                        <span pDraggable="eventos" (onDragStart)="dragStart(itm, i, index)">{{itm[key] }}</span>
+                      </ng-template>
+                </p-column>
+                <!-- <p-column field="WorkExperience" header="Work Experience"></p-column>
+                <p-column field="Role" header="Role"></p-column>
+                <p-column field="Location" header="Location"></p-column> -->
+            </p-dataTable>
+        </div>
+    </div>
+    
+  </div>
 </div>
-<h2>Here are some links to help you start: </h2>
-<ul>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://angular.io/tutorial">Tour of Heroes</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://github.com/angular/angular-cli/wiki">CLI Documentation</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://blog.angular.io/">Angular blog</a></h2>
-  </li>
-</ul>
+<p-contextMenu #cm [model]="menu"></p-contextMenu>
+<p-contextMenu #td [model]="tdmenu"></p-contextMenu>
 
